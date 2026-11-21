@@ -232,28 +232,19 @@
               <text x="294" y="156" text-anchor="middle" fill="#9D174D" font-size="10.5" font-weight="700" font-family="Plus Jakarta Sans, sans-serif">CHAMBER B: STARCH</text>
 
               <!-- Internal Dual Airflow Channels -->
-              <path d="M356,98 L402,115" stroke="#DC2626" stroke-width="3" stroke-dasharray="4 3" />
-              <path d="M356,152 L402,135" stroke="#DB2777" stroke-width="3" stroke-dasharray="4 3" />
+              <path d="M356,98 L392,115" stroke="#DC2626" stroke-width="3" stroke-dasharray="4 3" />
+              <path d="M356,152 L392,135" stroke="#DB2777" stroke-width="3" stroke-dasharray="4 3" />
 
-              <!-- Rotating Adjustable Nozzle Collar -->
-              <rect x="371" y="92" width="32" height="66" rx="8" fill="#DC2626" />
-              <rect x="377" y="102" width="20" height="46" rx="4" fill="#FFE4E6" />
-              <text id="heroNozzleLabel" x="387" y="129" text-anchor="middle" fill="#991B1B" font-size="11" font-weight="800" font-family="Plus Jakarta Sans, sans-serif">M</text>
-
-              <!-- Common Directional Spray Tip -->
-              <path d="M403,106 L448,116 L448,134 L403,144 Z" fill="#1F1215" />
-              <ellipse cx="448" cy="125" rx="4" ry="9" fill="#FDA4AF" />
+              <!-- Fixed Precision Dispensing Tip -->
+              <path d="M371,102 L438,116 L438,134 L371,148 Z" fill="#1F1215" />
+              <rect x="371" y="98" width="14" height="54" rx="5" fill="#DC2626" />
+              <ellipse cx="438" cy="125" rx="4" ry="9" fill="#FDA4AF" />
             </svg>
 
             <!-- Interactive Micro-Controls Pill Bar above CTA -->
-            <div class="inline-flex flex-wrap justify-center items-center gap-1.5 bg-white/95 backdrop-blur border border-rose-200 px-3.5 py-1.5 rounded-full shadow-sm text-xs font-semibold text-slate-700" onclick="event.stopPropagation()">
-              <span class="text-slate-500 pl-1">Nozzle:</span>
-              <button onclick="setHeroNozzle('OFF')" id="heroBtnOFF" class="px-2.5 py-0.5 rounded-full hover:bg-rose-50 transition">OFF</button>
-              <button onclick="setHeroNozzle('S')" id="heroBtnS" class="px-2.5 py-0.5 rounded-full hover:bg-rose-50 transition">S</button>
-              <button onclick="setHeroNozzle('M')" id="heroBtnM" class="px-2.5 py-0.5 rounded-full bg-medred text-white transition">M</button>
-              <button onclick="setHeroNozzle('L')" id="heroBtnL" class="px-2.5 py-0.5 rounded-full hover:bg-rose-50 transition">L</button>
-              <span class="h-3.5 w-px bg-rose-200"></span>
-              <button onclick="triggerHeroSpray()" class="px-3 py-0.5 rounded-full bg-pillrose/60 text-medcrimson hover:bg-pillrose transition flex items-center gap-1">
+            <div class="inline-flex flex-wrap justify-center items-center gap-2 bg-white/95 backdrop-blur border border-rose-200 px-4 py-1.5 rounded-full shadow-sm text-xs font-semibold text-slate-700" onclick="event.stopPropagation()">
+              <span class="text-slate-500">Dual-Chamber Airflow:</span>
+              <button onclick="triggerHeroSpray()" class="px-3.5 py-1 rounded-full bg-medred text-white hover:bg-medcrimson transition flex items-center gap-1.5">
                 <span>Test Spray</span>
               </button>
             </div>
@@ -331,7 +322,7 @@
             BIOCLOTIX is an innovative, plant-derived dry powder haemostatic system engineered to bridge the gap between high-tech hospital care and rugged, accessible field medicine.
           </p>
           <p class="mt-3 text-rose-100 leading-relaxed text-sm sm:text-base">
-            By storing <strong class="text-archpink underline decoration-rose-300/60">Oxidised Regenerated Cellulose (ORC)</strong> and <strong class="text-archpink underline decoration-rose-300/60">Microporous Starch</strong> in completely separate chambers until the exact moment of use, the applicator eliminates premature moisture clumping and propels both powders simultaneously through an adjustable airflow nozzle.
+            By storing <strong class="text-archpink underline decoration-rose-300/60">Oxidised Regenerated Cellulose (ORC)</strong> and <strong class="text-archpink underline decoration-rose-300/60">Microporous Starch</strong> in completely separate chambers until the exact moment of use, the applicator eliminates premature moisture clumping and propels both powders simultaneously through a fixed precision dispensing tip.
           </p>
         </div>
 
@@ -422,6 +413,26 @@
         </div>
         <div class="lg:w-2/3 text-slate-700 text-sm sm:text-base leading-relaxed border-t lg:border-t-0 lg:border-l border-rose-200 pt-4 lg:pt-0 lg:pl-8">
           When the manual pump is compressed, controlled airflow propels the <strong>ORC</strong> and <strong>starch powders</strong> through separate internal channels. They deploy simultaneously through the nozzle, where the starch instantly absorbs excess fluid to concentrate blood components, while the ORC provides an immediate matrix to support the body's natural clot formation.
+        <!-- Component 4: Precision Tip & Manual Pump -->
+        <div class="bg-softrose rounded-3xl p-6 border border-rose-200/70 hover:border-medred/50 transition">
+          <div class="w-12 h-12 rounded-2xl bg-medred text-white flex items-center justify-center font-serif font-bold text-xl mb-5">
+            04
+          </div>
+          <h3 class="font-serif text-xl font-bold text-medcrimson">Dispensing Tip & Manual Pump</h3>
+          <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+            Non-electronic manual airflow mechanism paired with a fixed precision dispensing tip for targeted, consistent wound coverage.
+          </p>
+        </div>
+      </div>
+
+      <!-- Concise "How It Works" Banner -->
+      <div class="mt-12 bg-softrose rounded-3xl p-8 sm:p-10 border border-rose-200 flex flex-col lg:flex-row items-center gap-8">
+        <div class="lg:w-1/3">
+          <span class="text-xs font-bold uppercase tracking-widest text-medred">Coordinated Mechanism</span>
+          <h3 class="font-serif text-2xl sm:text-3xl font-bold text-medcrimson mt-1">How It Works</h3>
+        </div>
+        <div class="lg:w-2/3 text-slate-700 text-sm sm:text-base leading-relaxed border-t lg:border-t-0 lg:border-l border-rose-200 pt-4 lg:pt-0 lg:pl-8">
+          When the manual pump is compressed, controlled airflow propels the <strong>ORC</strong> and <strong>starch powders</strong> through separate internal channels. They deploy simultaneously through the dispensing tip, where the starch instantly absorbs excess fluid to concentrate blood components, while the ORC provides an immediate matrix to support the body's natural clot formation.
         </div>
       </div>
     </div>
@@ -439,7 +450,7 @@
         Test the Dual-Chamber Applicator
       </h2>
       <p class="mt-3 text-slate-600 text-sm sm:text-base">
-        Select a nozzle dispersion setting and press the manual pump to observe how ORC and Microporous Starch deploy onto a simulated wound bed.
+        Press the manual pump to observe how ORC and Microporous Starch deploy simultaneously through the precision dispensing tip onto a simulated wound bed.
       </p>
     </div>
 
@@ -448,41 +459,21 @@
 
         <!-- Controls Panel (Left) -->
         <div class="lg:col-span-5 space-y-6">
-          <div>
-            <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-3">
-              1. Rotating Nozzle Selector
-            </label>
-            <div class="grid grid-cols-4 gap-2">
-              <button onclick="setSimNozzle('OFF')" id="simBtnOFF" class="py-2.5 rounded-2xl text-xs font-bold border border-rose-200 text-slate-600 hover:bg-softrose transition">
-                OFF
-              </button>
-              <button onclick="setSimNozzle('SMALL')" id="simBtnSMALL" class="py-2.5 rounded-2xl text-xs font-bold border border-rose-200 text-slate-600 hover:bg-softrose transition">
-                SMALL
-              </button>
-              <button onclick="setSimNozzle('MEDIUM')" id="simBtnMEDIUM" class="py-2.5 rounded-2xl text-xs font-bold bg-medred text-white shadow-sm transition">
-                MEDIUM
-              </button>
-              <button onclick="setSimNozzle('LARGE')" id="simBtnLARGE" class="py-2.5 rounded-2xl text-xs font-bold border border-rose-200 text-slate-600 hover:bg-softrose transition">
-                LARGE
-              </button>
-            </div>
-          </div>
-
-          <!-- Nozzle Setting Readout -->
-          <div class="bg-softrose rounded-2xl p-4 border border-rose-200/70">
+          <!-- Mechanism Readout -->
+          <div class="bg-softrose rounded-2xl p-5 border border-rose-200/70">
             <div class="flex items-center justify-between text-xs font-semibold text-slate-500">
-              <span>ACTIVE SETTING</span>
-              <span id="simSettingBadge" class="text-medred font-bold">MEDIUM DISPERSION</span>
+              <span>DELIVERY SYSTEM</span>
+              <span class="text-medred font-bold">DUAL-CHANNEL AIRFLOW</span>
             </div>
-            <p id="simSettingDesc" class="text-sm text-slate-700 mt-1.5">
-              Balanced dual-powder airflow ideal for standard lacerations and moderate surgical bleeding surfaces.
+            <p class="text-sm text-slate-700 mt-2 leading-relaxed">
+              Each pump compression delivers a balanced, uniform dispersion of <strong>Chamber A (ORC)</strong> and <strong>Chamber B (Microporous Starch)</strong> directly onto the target site without pre-mixing.
             </p>
           </div>
 
           <!-- Manual Pump Trigger Button -->
           <div>
             <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-3">
-              2. Manual Airflow Pump
+              Manual Airflow Pump
             </label>
             <button onclick="triggerSimSpray()" class="w-full py-4 px-6 rounded-full bg-medred hover:bg-medcrimson text-white font-bold text-sm tracking-wider uppercase shadow-md transition flex items-center justify-center gap-3 active:scale-95">
               <span>Press Manual Pump</span>
@@ -511,7 +502,7 @@
 
           <!-- Applicator + Target Wound Bed Canvas -->
           <div class="relative my-auto py-8 flex items-center justify-between gap-3 sm:gap-4">
-            <!-- Left: Nozzle Tip with Properly Contained Chamber A & Chamber B Labels -->
+            <!-- Left: Fixed Dispensing Tip with Properly Contained Chamber A & Chamber B Labels -->
             <div class="flex items-center shrink-0">
               <div id="simPumpBlock" class="w-9 sm:w-11 h-20 rounded-l-full bg-medred transition-transform duration-200"></div>
               <div class="w-36 sm:w-44 bg-white border-2 border-medcrimson rounded-2xl flex flex-col justify-between p-1.5 gap-1.5 shadow-sm overflow-hidden">
@@ -522,8 +513,8 @@
                   Chamber B: Starch
                 </div>
               </div>
-              <div class="w-7 sm:w-8 h-11 bg-meddark rounded-r-xl flex items-center justify-center text-[9px] font-bold text-archpink shrink-0" id="simNozzleTipText">
-                M
+              <div class="w-7 sm:w-8 h-11 bg-meddark rounded-r-xl flex items-center justify-center shrink-0">
+                <span class="w-2 h-2 rounded-full bg-archpink"></span>
               </div>
             </div>
 
@@ -767,35 +758,13 @@
     }
 
     // Hero Device Interactive Controls
-    let heroNozzle = 'M';
-    function setHeroNozzle(size) {
-      heroNozzle = size;
-      const label = document.getElementById('heroNozzleLabel');
-      label.textContent = size;
-      label.setAttribute('font-size', size === 'OFF' ? '8' : '11');
-      ['OFF', 'S', 'M', 'L'].forEach((s) => {
-        const btn = document.getElementById('heroBtn' + s);
-        if (s === size) {
-          btn.classList.add('bg-medred', 'text-white');
-          btn.classList.remove('hover:bg-rose-50');
-        } else {
-          btn.classList.remove('bg-medred', 'text-white');
-          btn.classList.add('hover:bg-rose-50');
-        }
-      });
-      if (size !== 'OFF') {
-        triggerHeroSpray();
-      }
-    }
-
     function triggerHeroSpray() {
-      if (heroNozzle === 'OFF') return;
       const pump = document.getElementById('heroPumpGroup');
       const anchor = document.getElementById('heroSprayParticles');
       pump.classList.add('pump-pressed');
       setTimeout(() => pump.classList.remove('pump-pressed'), 200);
 
-      const count = heroNozzle === 'S' ? 8 : heroNozzle === 'M' ? 14 : 22;
+      const count = 16;
       for (let i = 0; i < count; i++) {
         const dot = document.createElement('span');
         const isORC = i % 2 === 0;
@@ -810,68 +779,10 @@
     }
 
     // Section 3 Simulator State & Logic
-    let simSetting = 'MEDIUM';
     let pumpCount = 0;
     let coverage = 0;
 
-    const settingInfo = {
-      OFF: {
-        badge: 'LOCKED (OFF)',
-        tip: 'OFF',
-        desc: 'Safety lock engaged. Airflow channels are sealed to prevent accidental powder discharge during transport.',
-        gain: 0,
-        particles: 0,
-      },
-      SMALL: {
-        badge: 'SMALL DISPERSION',
-        tip: 'S',
-        desc: 'Focused narrow-cone spray ideal for minor lacerations, dental sockets, and precision pinpoint bleeding.',
-        gain: 15,
-        particles: 8,
-      },
-      MEDIUM: {
-        badge: 'MEDIUM DISPERSION',
-        tip: 'M',
-        desc: 'Balanced dual-powder airflow ideal for standard lacerations and moderate surgical bleeding surfaces.',
-        gain: 25,
-        particles: 15,
-      },
-      LARGE: {
-        badge: 'LARGE DISPERSION',
-        tip: 'L',
-        desc: 'Wide-area high-volume burst engineered for extensive trauma pockets and broad tissue surfaces.',
-        gain: 40,
-        particles: 24,
-      },
-    };
-
-    function setSimNozzle(setting) {
-      simSetting = setting;
-      ['OFF', 'SMALL', 'MEDIUM', 'LARGE'].forEach((key) => {
-        const btn = document.getElementById('simBtn' + key);
-        if (key === setting) {
-          btn.className = 'py-2.5 rounded-2xl text-xs font-bold bg-medred text-white shadow-sm transition';
-        } else {
-          btn.className = 'py-2.5 rounded-2xl text-xs font-bold border border-rose-200 text-slate-600 hover:bg-softrose transition';
-        }
-      });
-
-      const info = settingInfo[setting];
-      document.getElementById('simSettingBadge').textContent = info.badge;
-      document.getElementById('simSettingDesc').textContent = info.desc;
-      document.getElementById('simNozzleTipText').textContent = info.tip;
-    }
-
     function triggerSimSpray() {
-      const info = settingInfo[simSetting];
-      const statusLabel = document.getElementById('clotStatusLabel');
-
-      if (simSetting === 'OFF') {
-        statusLabel.textContent = 'Status: Nozzle Locked (OFF)';
-        statusLabel.className = 'bg-rose-100 text-medcrimson px-3 py-1 rounded-full border border-rose-300 font-semibold';
-        return;
-      }
-
       // Animate pump
       const pumpBlock = document.getElementById('simPumpBlock');
       pumpBlock.style.transform = 'scaleX(0.75)';
@@ -882,11 +793,12 @@
 
       // Spawn dual-biomaterial particles
       const zone = document.getElementById('simParticleZone');
-      for (let i = 0; i < info.particles; i++) {
+      const particleCount = 16;
+      for (let i = 0; i < particleCount; i++) {
         const p = document.createElement('span');
         const isORC = i % 2 === 0;
         p.className = `powder-particle absolute left-0 top-1/2 w-2.5 h-2.5 rounded-full ${isORC ? 'bg-medred' : 'bg-pink-400'}`;
-        const spreadY = (Math.random() - 0.5) * (simSetting === 'LARGE' ? 95 : simSetting === 'MEDIUM' ? 60 : 30);
+        const spreadY = (Math.random() - 0.5) * 60;
         const reachX = 85 + Math.random() * 65;
         p.style.setProperty('--tx', `${reachX}px`);
         p.style.setProperty('--ty', `${spreadY}px`);
@@ -895,7 +807,7 @@
       }
 
       // Update wound matrix coverage
-      coverage = Math.min(100, coverage + info.gain);
+      coverage = Math.min(100, coverage + 25);
       updateWoundVisuals();
     }
 
