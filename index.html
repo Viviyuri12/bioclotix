@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BIOCLOTIX — Plant-Based Haemostasis, Smarter Care</title>
+  <title>BIOCLOTIX — Plant-Based Dual-Chamber Haemostatic System</title>
 
-  <!-- Google Fonts: Editorial Serif (Playfair Display) & Clean Sans-Serif (Plus Jakarta Sans) -->
+  <!-- Google Fonts: Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -17,20 +17,15 @@
       theme: {
         extend: {
           colors: {
-            cream: '#FFFBFB',
             medred: '#DC2626',
             medcrimson: '#991B1B',
-            meddark: '#1F1215',
-            archpink: '#FFE4E6',
-            softrose: '#FFF1F2',
-            pillrose: '#FECDD3',
-            pillcoral: '#FDA4AF',
-            pillcrimson: '#F87171',
-            pillblush: '#FCE7F3',
+            medtint: '#FFF1F2',
+            medpink: '#FFE4E6',
+            medrose: '#FECDD3',
+            medbody: '#1F2937',
           },
           fontFamily: {
-            serif: ['"Playfair Display"', 'Georgia', 'serif'],
-            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            sans: ['"Inter"', 'system-ui', 'sans-serif'],
           },
         },
       },
@@ -38,78 +33,71 @@
   </script>
 
   <style>
-    /* Custom floating animations for hero badges */
-    @keyframes floatSlow {
-      0%, 100% { transform: translateY(0px) rotate(var(--rot, 0deg)); }
-      50% { transform: translateY(-7px) rotate(var(--rot, 0deg)); }
+    /* Subtle floating motion for hero trait pills */
+    @keyframes floatBadge {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
     }
-    .badge-float {
-      animation: floatSlow 4.5s ease-in-out infinite;
+    .float-slow {
+      animation: floatBadge 4.4s ease-in-out infinite;
     }
-    .badge-float-delay {
-      animation: floatSlow 5.2s ease-in-out 1.2s infinite;
+    .float-delayed {
+      animation: floatBadge 5s ease-in-out 1.1s infinite;
     }
 
-    /* Powder particle burst animation in applicator simulator */
-    @keyframes sprayBurst {
+    /* Dual-powder particle dispersion burst */
+    @keyframes powderSpray {
       0% {
         opacity: 0.95;
-        transform: translate(0, 0) scale(0.5);
+        transform: translate(0, 0) scale(0.55);
       }
       100% {
         opacity: 0;
-        transform: translate(var(--tx, 60px), var(--ty, -30px)) scale(1.4);
+        transform: translate(var(--tx, 70px), var(--ty, -25px)) scale(1.35);
       }
     }
-    .powder-particle {
-      animation: sprayBurst 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    .spray-dot {
+      animation: powderSpray 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
-    /* Pump compression effect */
-    .pump-pressed {
-      transform: translateX(14px) scaleX(0.86);
+    /* Manual pump squeeze animation */
+    .pump-squeezed {
+      transform: translateX(12px) scaleX(0.86);
     }
   </style>
 </head>
-<body class="bg-cream text-slate-800 font-sans antialiased selection:bg-archpink selection:text-medcrimson overflow-x-hidden">
+<body class="bg-white text-medbody font-sans antialiased selection:bg-medpink selection:text-medcrimson overflow-x-hidden">
 
   <!-- =========================================================
-       TOP NAVIGATION BAR
+       STICKY HEADER & NAVIGATION
   ========================================================== -->
-  <header class="sticky top-0 z-50 bg-cream/90 backdrop-blur-md border-b border-rose-200/60">
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-rose-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-8 h-20 flex items-center justify-between">
-      <!-- Left: Bold Serif Logo -->
-      <a href="#" class="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-medred hover:opacity-90 transition">
-        Bioclotix
+      <!-- Brand Wordmark -->
+      <a href="#" class="flex items-center gap-2.5 group">
+        <span class="w-9 h-9 rounded-xl bg-medred text-white flex items-center justify-center font-extrabold text-lg shadow-sm group-hover:bg-medcrimson transition">
+          B
+        </span>
+        <span class="text-xl sm:text-2xl font-extrabold tracking-tight text-medcrimson">
+          BIOCLOTIX
+        </span>
       </a>
 
-      <!-- Center: Uppercase Navigation Links -->
-      <nav class="hidden md:flex items-center space-x-8 text-xs font-semibold tracking-widest uppercase text-slate-600">
-        <a href="#problem-solution" class="hover:text-medred transition">The Problem</a>
-        <a href="#science" class="hover:text-medred transition">Biomaterials</a>
-        <a href="#simulator" class="hover:text-medred transition">Applicator</a>
-        <a href="#practicality" class="hover:text-medred transition">Practicality</a>
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center space-x-8 text-xs font-semibold tracking-wider uppercase text-slate-600">
+        <a href="#how-it-works" class="hover:text-medred transition">Components &amp; Mechanism</a>
+        <a href="#simulator" class="hover:text-medred transition">Interactive Simulator</a>
+        <a href="#practicality" class="hover:text-medred transition">Field Readiness</a>
         <a href="#applications" class="hover:text-medred transition">Applications</a>
       </nav>
 
-      <!-- Right: Pill-Shaped Info / Reference Action Group -->
-      <div class="flex items-center space-x-2">
-        <div class="flex items-center bg-white border border-rose-200 rounded-full px-3 py-1.5 shadow-sm">
-          <button onclick="openModal('safetyModal')" title="Safety & Educational Disclaimer" class="p-1.5 text-slate-700 hover:text-medred transition rounded-full" aria-label="Safety Notice">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
-            </svg>
-          </button>
-          <span class="h-4 w-px bg-rose-200 mx-1.5"></span>
-          <a href="#references" title="Scientific References" class="p-1.5 text-slate-700 hover:text-medred transition rounded-full" aria-label="Scientific Literature">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-            </svg>
-          </a>
-        </div>
+      <!-- Desktop CTA & Mobile Menu Toggle -->
+      <div class="flex items-center gap-3">
+        <a href="#simulator" class="hidden sm:inline-flex items-center gap-2 bg-medred hover:bg-medcrimson text-white text-xs font-bold uppercase tracking-wider px-5 py-2.5 rounded-full shadow-sm transition">
+          <span>Test Applicator</span>
+        </a>
 
-        <!-- Mobile Menu Button -->
-        <button id="mobileMenuBtn" class="md:hidden p-2.5 rounded-full bg-white border border-rose-200 text-slate-700" aria-label="Toggle Menu">
+        <button id="mobileMenuBtn" class="md:hidden p-2.5 rounded-xl bg-medtint border border-rose-200 text-medcrimson" aria-label="Toggle Menu">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
@@ -118,432 +106,386 @@
     </div>
 
     <!-- Mobile Navigation Drawer -->
-    <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-rose-200 px-6 py-4 space-y-3 text-xs font-semibold uppercase tracking-widest text-slate-700">
-      <a href="#problem-solution" class="block py-1 hover:text-medred">The Problem & Solution</a>
-      <a href="#science" class="block py-1 hover:text-medred">Biomaterial Science</a>
-      <a href="#simulator" class="block py-1 hover:text-medred">Interactive Applicator</a>
-      <a href="#practicality" class="block py-1 hover:text-medred">Practicality & Cost</a>
-      <a href="#applications" class="block py-1 hover:text-medred">Applications</a>
+    <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-rose-100 px-6 py-4 space-y-3 text-xs font-semibold uppercase tracking-wider text-slate-700">
+      <a href="#how-it-works" class="block py-1.5 hover:text-medred">Components &amp; Mechanism</a>
+      <a href="#simulator" class="block py-1.5 hover:text-medred">Interactive Simulator</a>
+      <a href="#practicality" class="block py-1.5 hover:text-medred">Practicality &amp; Field Readiness</a>
+      <a href="#applications" class="block py-1.5 hover:text-medred">Potential Applications</a>
     </div>
   </header>
 
   <!-- =========================================================
-       HERO SECTION (Red, White & Light Pink Arch + Floating Pills)
+       1. HERO SECTION
   ========================================================== -->
-  <section class="relative pt-10 sm:pt-14 pb-12 overflow-hidden">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-20 text-center">
+  <section class="relative bg-gradient-to-b from-medtint via-white to-white pt-10 sm:pt-16 pb-16 sm:pb-24 px-4 sm:px-8 overflow-hidden">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid lg:grid-cols-12 gap-10 lg:gap-8 items-center">
 
-      <!-- Floating Left Pill Cluster (Desktop & Tablet) -->
-      <div class="hidden sm:flex flex-col items-start absolute left-4 lg:left-10 top-6 z-30 select-none">
-        <!-- Soft Rose Pill -->
-        <div style="--rot: 10deg;" class="badge-float bg-pillrose text-medcrimson font-semibold text-xs md:text-sm px-5 py-2 rounded-full shadow-sm flex items-center gap-2.5 ml-6 border border-rose-300/60">
-          <span>Rapid Clotting</span>
-          <span class="w-2 h-2 rounded-full bg-medred inline-block"></span>
-      <!-- Mobile Navigation Drawer -->
-    <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-rose-200 px-6 py-4 space-y-3 text-xs font-semibold uppercase tracking-widest text-slate-700">
-      <a href="#problem-solution" class="block py-1 hover:text-medred">The Problem & Solution</a>
-      <a href="#science" class="block py-1 hover:text-medred">Biomaterial Science</a>
-      <a href="#simulator" class="block py-1 hover:text-medred">Interactive Applicator</a>
-      <a href="#practicality" class="block py-1 hover:text-medred">Practicality & Field Readiness</a>
-      <a href="#applications" class="block py-1 hover:text-medred">Applications</a>
-    </div>
-  </header>
+        <!-- Left Column: Title, Subtitle & Action Buttons -->
+        <div class="lg:col-span-6 text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 bg-medpink text-medcrimson text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5 border border-rose-200">
+            <span class="w-2 h-2 rounded-full bg-medred"></span>
+            Dual-Chamber Dry Powder Haemostat
+          </div>
 
-  <!-- =========================================================
-       HERO SECTION (Red, White & Light Pink Arch + Floating Pills)
-  ========================================================== -->
-  <section class="relative pt-10 sm:pt-14 pb-12 overflow-hidden">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-20 text-center">
+          <h1 class="text-4xl sm:text-6xl font-extrabold text-medcrimson tracking-tight leading-[1.08]">
+            BIOCLOTIX
+          </h1>
 
-      <!-- Floating Left Pill Cluster (Desktop & Tablet) -->
-      <div class="hidden sm:flex flex-col items-start absolute left-4 lg:left-10 top-6 z-30 select-none">
-        <!-- Soft Rose Pill -->
-        <div style="--rot: 10deg;" class="badge-float bg-pillrose text-medcrimson font-semibold text-xs md:text-sm px-5 py-2 rounded-full shadow-sm flex items-center gap-2.5 ml-6 border border-rose-300/60">
-          <span>Rapid Clotting</span>
-          <span class="w-2 h-2 rounded-full bg-medred inline-block"></span>
+          <p class="mt-4 text-lg sm:text-xl font-semibold text-medred">
+            Plant-Derived Haemostasis Engineered for Rapid Bleeding Control
+          </p>
+
+          <p class="mt-4 text-sm sm:text-base text-slate-700 leading-relaxed max-w-xl mx-auto lg:mx-0">
+            A mechanical dual-chamber dry powder applicator combining <strong>Oxidized Regenerated Cellulose (ORC)</strong> and <strong>Microporous Starch</strong> to achieve rapid, reliable clotting without electricity, batteries, or refrigeration.
+          </p>
+
+          <!-- Floating / Highlighted Trait Badges (Mobile & Tablet Friendly) -->
+          <div class="mt-7 flex flex-wrap justify-center lg:justify-start gap-2.5">
+            <span class="bg-medpink text-medcrimson text-xs font-bold px-4 py-2 rounded-full border border-rose-200 shadow-sm">
+              Plant-Derived
+            </span>
+            <span class="bg-white text-medcrimson text-xs font-bold px-4 py-2 rounded-full border border-rose-200 shadow-sm">
+              Dual-Chamber
+            </span>
+            <span class="bg-medpink text-medcrimson text-xs font-bold px-4 py-2 rounded-full border border-rose-200 shadow-sm">
+              Zero Power Needed
+            </span>
+            <span class="bg-white text-medcrimson text-xs font-bold px-4 py-2 rounded-full border border-rose-200 shadow-sm">
+              Biodegradable
+            </span>
+          </div>
+
+          <!-- Primary Hero CTAs -->
+          <div class="mt-8 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5">
+            <button onclick="triggerHeroSpray()" class="w-full sm:w-auto px-7 py-3.5 rounded-full bg-medred hover:bg-medcrimson text-white font-bold text-xs uppercase tracking-wider shadow-md transition flex items-center justify-center gap-2 active:scale-95">
+              <span>Test Spray</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </button>
+            <a href="#how-it-works" class="w-full sm:w-auto px-7 py-3.5 rounded-full bg-white hover:bg-medtint text-medcrimson border border-rose-200 font-bold text-xs uppercase tracking-wider transition text-center">
+              Explore System Design
+            </a>
+          </div>
         </div>
-        <!-- Coral Pink Pill -->
-        <div style="--rot: -16deg;" class="badge-float-delay bg-pillcoral text-meddark font-semibold text-xs md:text-sm px-5 py-2 rounded-full shadow-sm flex items-center gap-2.5 -mt-1">
-          <span>100% Plant-Based</span>
-          <span class="w-2 h-2 rounded-full bg-white inline-block"></span>
-        </div>
-      </div>
 
-      <!-- Floating Right Pill Cluster (Desktop & Tablet) -->
-      <div class="hidden sm:flex flex-col items-end absolute right-4 lg:right-10 top-6 z-30 select-none">
-        <!-- Blush Pink Pill -->
-        <div style="--rot: -15deg;" class="badge-float bg-pillblush text-medcrimson font-semibold text-xs md:text-sm px-5 py-2 rounded-full shadow-sm flex items-center gap-2.5 mr-6 border border-pink-200">
-          <span class="w-2 h-2 rounded-full bg-medred inline-block"></span>
-          <span>No Clumping</span>
-        </div>
-        <!-- Light Red Pill -->
-        <div style="--rot: 12deg;" class="badge-float-delay bg-pillcrimson text-white font-semibold text-xs md:text-sm px-5 py-2 rounded-full shadow-sm flex items-center gap-2.5 -mt-1">
-          <span class="w-2 h-2 rounded-full bg-white inline-block"></span>
-          <span>Shelf-Stable</span>
-        </div>
-      </div>
+        <!-- Right Column: Custom SVG Dual-Chamber Bottle Diagram & Floating Badges -->
+        <div class="lg:col-span-6 relative">
+          <!-- Decorative Soft Pink Arch Backdrop -->
+          <div class="relative bg-medpink/70 rounded-3xl p-6 sm:p-10 border border-rose-200/80 shadow-inner">
 
-      <!-- Editorial Serif Headline -->
-      <div class="relative z-20 max-w-4xl mx-auto">
-        <p class="text-xs font-bold uppercase tracking-[0.22em] text-medred/85 mb-3">
-          Plant-Based Dual-Chamber Haemostatic Applicator
-        </p>
-        <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-bold text-medred leading-[1.06] tracking-tight">
-          Rapid Clotting.<br />
-          <span class="italic font-semibold text-medcrimson">Smarter</span> Care.
-        </h1>
-        <p class="mt-4 text-sm sm:text-base text-slate-700 max-w-xl mx-auto font-medium">
-          Where natural biomaterials meet emergency precision—combining <strong>Oxidised Regenerated Cellulose</strong> and <strong>Microporous Starch</strong> in one manual spray.
-        </p>
+            <!-- Floating Trait Pill Top-Left -->
+            <div class="hidden sm:flex float-slow absolute -top-4 left-6 bg-white text-medcrimson text-xs font-bold px-4 py-2 rounded-full shadow-md border border-rose-200 items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-medred"></span>
+              <span>Plant-Derived</span>
+            </div>
 
-        <!-- Mobile-only Pill Badges -->
-        <div class="flex sm:hidden flex-wrap justify-center gap-2 mt-5">
-          <span class="bg-pillrose text-medcrimson text-xs font-semibold px-3.5 py-1.5 rounded-full">Rapid Clotting</span>
-          <span class="bg-pillcoral text-meddark text-xs font-semibold px-3.5 py-1.5 rounded-full">100% Plant-Based</span>
-          <span class="bg-pillblush text-medcrimson text-xs font-semibold px-3.5 py-1.5 rounded-full">No Clumping</span>
-          <span class="bg-pillcrimson text-white text-xs font-semibold px-3.5 py-1.5 rounded-full">Shelf-Stable</span>
-        </div>
-      </div>
+            <!-- Floating Trait Pill Top-Right -->
+            <div class="hidden sm:flex float-delayed absolute -top-4 right-6 bg-medred text-white text-xs font-bold px-4 py-2 rounded-full shadow-md items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-white"></span>
+              <span>Dual-Chamber</span>
+            </div>
 
-      <!-- Centerpiece Semi-Circular Light Red/Pink Arch + Interactive Device Illustration -->
-      <div class="relative mt-6 sm:mt-8 mx-auto max-w-4xl pt-10 sm:pt-14 pb-16 px-4">
-        <!-- Soft Light Pink Semi-Circular Arch -->
-        <div class="absolute inset-x-0 bottom-0 top-4 bg-archpink rounded-t-[999px] -z-10 shadow-inner border-t border-rose-200/70"></div>
+            <!-- Floating Trait Pill Bottom-Left -->
+            <div class="hidden sm:flex float-delayed absolute -bottom-4 left-8 bg-medcrimson text-white text-xs font-bold px-4 py-2 rounded-full shadow-md items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-medrose"></span>
+              <span>Zero Power Needed</span>
+            </div>
 
-        <!-- Interactive Dual-Chamber Applicator SVG Showcase -->
-        <div class="relative z-10 flex flex-col items-center">
-          <div id="heroDeviceContainer" class="relative w-full max-w-lg mx-auto cursor-pointer group" onclick="triggerHeroSpray()" title="Click applicator to test dual-powder airflow spray!">
-            <!-- Spray Particles Anchor -->
-            <div id="heroSprayParticles" class="absolute right-6 sm:right-12 top-1/2 -translate-y-1/2 pointer-events-none z-30"></div>
+            <!-- Floating Trait Pill Bottom-Right -->
+            <div class="hidden sm:flex float-slow absolute -bottom-4 right-8 bg-white text-medcrimson text-xs font-bold px-4 py-2 rounded-full shadow-md border border-rose-200 items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-medred"></span>
+              <span>Biodegradable</span>
+            </div>
 
-            <!-- Custom Detailed SVG of the BIOCLOTIX Dual-Chamber Applicator -->
-            <svg viewBox="0 0 540 250" class="w-full h-auto drop-shadow-xl transition-transform duration-300 group-hover:scale-[1.02]">
-              <!-- Soft Shadow under Device -->
-              <ellipse cx="270" cy="228" rx="190" ry="12" fill="#991B1B" fill-opacity="0.12" />
+            <!-- Interactive SVG Bottle Container -->
+            <div class="relative cursor-pointer group py-4" onclick="triggerHeroSpray()" title="Click to test dual-powder airflow spray">
+              <!-- Particle Burst Anchor -->
+              <div id="heroSprayAnchor" class="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 pointer-events-none z-20"></div>
 
-              <!-- Manual Airflow Bulb Pump (Left) -->
-              <g id="heroPumpGroup" class="transition-transform duration-200 origin-right">
-                <path d="M55,125 C55,78 115,72 145,98 L145,152 C115,178 55,172 55,125 Z" fill="#DC2626" />
-                <path d="M72,110 C82,92 112,88 132,102" stroke="#FCA5A5" stroke-width="5" stroke-linecap="round" fill="none" />
-                <rect x="140" y="102" width="18" height="46" rx="4" fill="#991B1B" />
-                <text x="98" y="130" text-anchor="middle" fill="#FFFFFF" font-size="10" font-weight="700" font-family="Plus Jakarta Sans, sans-serif" letter-spacing="1">PUMP</text>
-              </g>
+              <svg viewBox="0 0 540 250" class="w-full h-auto drop-shadow-lg transition-transform duration-300 group-hover:scale-[1.01]">
+                <!-- Subtle Ground Shadow -->
+                <ellipse cx="270" cy="226" rx="185" ry="11" fill="#991B1B" fill-opacity="0.12" />
 
-              <!-- Dual-Chamber Main Body -->
-              <rect x="156" y="64" width="215" height="122" rx="22" fill="#FFFFFF" stroke="#991B1B" stroke-width="4" />
+                <!-- Manual Airflow Bulb Pump (Left) -->
+                <g id="heroPumpBulb" class="transition-transform duration-200 origin-right">
+                  <path d="M52,125 C52,78 112,72 142,98 L142,152 C112,178 52,172 52,125 Z" fill="#DC2626" />
+                  <path d="M70,110 C80,92 110,88 130,102" stroke="#FECDD3" stroke-width="4.5" stroke-linecap="round" fill="none" />
+                  <rect x="138" y="102" width="18" height="46" rx="4" fill="#991B1B" />
+                  <text x="95" y="129" text-anchor="middle" fill="#FFFFFF" font-size="10" font-weight="700" font-family="Inter, sans-serif" letter-spacing="0.8">PUMP</text>
+                </g>
 
-              <!-- Top Chamber: Oxidised Regenerated Cellulose (ORC) -->
-              <rect x="170" y="76" width="186" height="44" rx="12" fill="#FFF1F2" stroke="#DC2626" stroke-width="2" />
-              <!-- ORC Powder Granules Pattern -->
-              <circle cx="188" cy="98" r="3.5" fill="#DC2626" fill-opacity="0.5" />
-              <circle cx="202" cy="92" r="3" fill="#DC2626" fill-opacity="0.65" />
-              <circle cx="215" cy="103" r="4" fill="#DC2626" fill-opacity="0.45" />
-              <circle cx="229" cy="95" r="3" fill="#DC2626" fill-opacity="0.6" />
-              <text x="294" y="102" text-anchor="middle" fill="#991B1B" font-size="10.5" font-weight="700" font-family="Plus Jakarta Sans, sans-serif">CHAMBER A: ORC</text>
+                <!-- Dual-Chamber Mechanical Housing -->
+                <rect x="154" y="62" width="222" height="126" rx="22" fill="#FFFFFF" stroke="#991B1B" stroke-width="3.5" />
 
-              <!-- Center Divider Wall (Prevents Premature Mixing) -->
-              <line x1="166" y1="125" x2="362" y2="125" stroke="#991B1B" stroke-width="3.5" />
+                <!-- Chamber A: Oxidized Regenerated Cellulose (ORC) -->
+                <rect x="168" y="75" width="194" height="45" rx="12" fill="#FFF1F2" stroke="#DC2626" stroke-width="2" />
+                <circle cx="185" cy="97" r="3" fill="#DC2626" fill-opacity="0.55" />
+                <circle cx="197" cy="91" r="2.5" fill="#DC2626" fill-opacity="0.7" />
+                <circle cx="207" cy="103" r="3.5" fill="#DC2626" fill-opacity="0.45" />
+                <text x="290" y="101" text-anchor="middle" fill="#991B1B" font-size="10.5" font-weight="700" font-family="Inter, sans-serif">CHAMBER A: ORC</text>
 
-              <!-- Bottom Chamber: Microporous Starch -->
-              <rect x="170" y="130" width="186" height="44" rx="12" fill="#FCE7F3" stroke="#DB2777" stroke-width="2" />
-              <!-- Starch Granules Pattern -->
-              <circle cx="188" cy="152" r="3.5" fill="#EC4899" fill-opacity="0.55" />
-              <circle cx="202" cy="158" r="3" fill="#EC4899" fill-opacity="0.7" />
-              <circle cx="215" cy="147" r="3.5" fill="#EC4899" fill-opacity="0.5" />
-              <circle cx="228" cy="155" r="3" fill="#EC4899" fill-opacity="0.65" />
-              <text x="294" y="156" text-anchor="middle" fill="#9D174D" font-size="10.5" font-weight="700" font-family="Plus Jakarta Sans, sans-serif">CHAMBER B: STARCH</text>
+                <!-- Sealed Center Divider -->
+                <line x1="164" y1="125" x2="366" y2="125" stroke="#991B1B" stroke-width="3.5" />
 
-              <!-- Internal Dual Airflow Channels -->
-              <path d="M356,98 L392,115" stroke="#DC2626" stroke-width="3" stroke-dasharray="4 3" />
-              <path d="M356,152 L392,135" stroke="#DB2777" stroke-width="3" stroke-dasharray="4 3" />
+                <!-- Chamber B: Microporous Starch -->
+                <rect x="168" y="130" width="194" height="45" rx="12" fill="#FFE4E6" stroke="#E11D48" stroke-width="2" />
+                <circle cx="185" cy="152" r="3" fill="#F43F5E" fill-opacity="0.6" />
+                <circle cx="197" cy="158" r="2.5" fill="#F43F5E" fill-opacity="0.75" />
+                <circle cx="207" cy="146" r="3.5" fill="#F43F5E" fill-opacity="0.5" />
+                <text x="290" y="156" text-anchor="middle" fill="#991B1B" font-size="10.5" font-weight="700" font-family="Inter, sans-serif">CHAMBER B: STARCH</text>
 
-              <!-- Fixed Precision Dispensing Tip -->
-              <path d="M371,102 L438,116 L438,134 L371,148 Z" fill="#1F1215" />
-              <rect x="371" y="98" width="14" height="54" rx="5" fill="#DC2626" />
-              <ellipse cx="438" cy="125" rx="4" ry="9" fill="#FDA4AF" />
-            </svg>
+                <!-- Converging Internal Airflow Channels -->
+                <path d="M362,97 L394,116" stroke="#DC2626" stroke-width="2.5" stroke-dasharray="4 3" />
+                <path d="M362,152 L394,134" stroke="#E11D48" stroke-width="2.5" stroke-dasharray="4 3" />
 
-            <!-- Interactive Micro-Controls Pill Bar above CTA -->
-            <div class="inline-flex flex-wrap justify-center items-center gap-2 bg-white/95 backdrop-blur border border-rose-200 px-4 py-1.5 rounded-full shadow-sm text-xs font-semibold text-slate-700" onclick="event.stopPropagation()">
-              <span class="text-slate-500">Dual-Chamber Airflow:</span>
-              <button onclick="triggerHeroSpray()" class="px-3.5 py-1 rounded-full bg-medred text-white hover:bg-medcrimson transition flex items-center gap-1.5">
-                <span>Test Spray</span>
-              </button>
+                <!-- Fixed Precision Dispensing Tip -->
+                <path d="M376,102 L444,116 L444,134 L376,148 Z" fill="#1F2937" />
+                <rect x="376" y="98" width="14" height="54" rx="5" fill="#DC2626" />
+                <ellipse cx="444" cy="125" rx="4" ry="9" fill="#FECDD3" />
+              </svg>
+
+              <!-- Interactive Trigger Bar below Bottle -->
+              <div class="mt-2 flex justify-center">
+                <button type="button" onclick="event.stopPropagation(); triggerHeroSpray();" class="inline-flex items-center gap-2 bg-white hover:bg-medtint text-medcrimson border border-rose-200 px-5 py-2 rounded-full text-xs font-bold shadow-sm transition">
+                  <span class="w-2 h-2 rounded-full bg-medred animate-ping"></span>
+                  <span>Test Spray Dispersion</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Bottom-Centered Wide White Pill CTA Button -->
-        <div class="absolute left-1/2 -translate-x-1/2 -bottom-6 z-30 w-full max-w-md px-4">
-          <a href="#problem-solution" class="group flex items-center justify-between bg-white hover:bg-softrose text-slate-900 rounded-full pl-8 pr-2.5 py-2.5 shadow-lg border border-rose-200 transition-all duration-300 hover:shadow-xl">
-            <span class="mx-auto text-xs sm:text-sm font-bold tracking-widest uppercase underline decoration-rose-300 underline-offset-4 group-hover:text-medred">
-              Explore The Science
-            </span>
-            <span class="w-10 h-10 rounded-full bg-medred text-white flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:translate-x-1">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-              </svg>
-            </span>
-          </a>
-        </div>
       </div>
     </div>
   </section>
 
   <!-- =========================================================
-       SECTION 1: THE PROBLEM & OUR PROPOSED SOLUTION
+       2. HOW IT WORKS & CORE COMPONENTS
   ========================================================== -->
-  <section id="problem-solution" class="py-16 sm:py-20 px-4 sm:px-8 max-w-7xl mx-auto">
-    <div class="grid lg:grid-cols-12 gap-8 items-stretch">
-
-      <!-- Left Card: The Critical Problem -->
-      <div class="lg:col-span-6 bg-white rounded-3xl p-8 sm:p-10 border border-rose-200/80 shadow-sm flex flex-col justify-between">
-        <div>
-          <span class="inline-flex items-center gap-2 bg-rose-50 text-medred text-xs font-bold uppercase tracking-wider px-4 py-1.5 rounded-full mb-5 border border-rose-200/70">
-            <span class="w-2 h-2 rounded-full bg-medred"></span>
-            The Critical Challenge
-          </span>
-          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-medred leading-tight">
-            Uncontrolled Bleeding Remains a Leading Preventable Killer.
-          </h2>
-          <p class="mt-4 text-slate-600 leading-relaxed text-sm sm:text-base">
-            Across emergency trauma, surgical theaters, and everyday accidents, severe blood loss can turn fatal within minutes before a patient ever reaches advanced clinical care.
-          </p>
-          <p class="mt-3 text-slate-600 leading-relaxed text-sm sm:text-base">
-            Conventional cotton gauze relies on slow manual pressure and frequently tears fragile clots upon removal. Meanwhile, advanced hospital haemostats often depend on expensive animal or human proteins, require cold-chain storage, or clog in humid field conditions.
-          </p>
-        </div>
-
-        <!-- Key Problem Stat Highlight -->
-        <div class="mt-8 pt-6 border-t border-rose-100 grid grid-cols-2 gap-4">
-          <div class="bg-softrose rounded-2xl p-4 border border-rose-100">
-            <div class="font-serif text-3xl font-bold text-medcrimson">35%–40%</div>
-            <div class="text-xs font-medium text-slate-600 mt-1">Of pre-hospital trauma deaths linked to rapid haemorrhage</div>
-          </div>
-          <div class="bg-softrose rounded-2xl p-4 border border-rose-100">
-            <div class="font-serif text-3xl font-bold text-medred">0 Sec</div>
-            <div class="text-xs font-medium text-slate-600 mt-1">Electronic warm-up or mixing delay needed</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right Card: Proposed Solution (BIOCLOTIX) -->
-      <div class="lg:col-span-6 bg-medred text-white rounded-3xl p-8 sm:p-10 shadow-md flex flex-col justify-between relative overflow-hidden">
-        <!-- Subtle decorative arch accent -->
-        <div class="w-64 h-64 rounded-full bg-white/10 absolute -right-16 -bottom-16 pointer-events-none"></div>
-
-        <div>
-          <span class="inline-flex items-center gap-2 bg-white text-medcrimson text-xs font-bold uppercase tracking-wider px-4 py-1.5 rounded-full mb-5">
-            <span class="w-2 h-2 rounded-full bg-medred"></span>
-            Our Proposed Solution
-          </span>
-          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white leading-tight">
-            Meet BIOCLOTIX: Dual-Biomaterial Precision.
-          </h2>
-          <p class="mt-4 text-rose-100 leading-relaxed text-sm sm:text-base">
-            BIOCLOTIX is an innovative, plant-derived dry powder haemostatic system engineered to bridge the gap between high-tech hospital care and rugged, accessible field medicine.
-          </p>
-          <p class="mt-3 text-rose-100 leading-relaxed text-sm sm:text-base">
-            By storing <strong class="text-archpink underline decoration-rose-300/60">Oxidised Regenerated Cellulose (ORC)</strong> and <strong class="text-archpink underline decoration-rose-300/60">Microporous Starch</strong> in completely separate chambers until the exact moment of use, the applicator eliminates premature moisture clumping and propels both powders simultaneously through a fixed precision dispensing tip.
-          </p>
-        </div>
-
-        <!-- Four Core Objectives Pills -->
-        <div class="mt-8 pt-6 border-t border-white/20">
-          <p class="text-xs uppercase tracking-widest text-rose-200 font-semibold mb-3">Four Core Design Objectives</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="bg-white/15 backdrop-blur-sm px-4 py-1.5 rounded-full text-xs font-semibold">1. Clinical Safety</span>
-            <span class="bg-white/15 backdrop-blur-sm px-4 py-1.5 rounded-full text-xs font-semibold">2. Field Readiness</span>
-            <span class="bg-white/15 backdrop-blur-sm px-4 py-1.5 rounded-full text-xs font-semibold">3. 100% Biodegradability</span>
-            <span class="bg-white/15 backdrop-blur-sm px-4 py-1.5 rounded-full text-xs font-semibold">4. Rapid Haemostasis</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- =========================================================
-       SECTION 2: COMPONENTS & HOW IT WORKS
-  ========================================================== -->
-  <section id="science" class="py-16 sm:py-20 bg-white border-y border-rose-200/70 px-4 sm:px-8">
+  <section id="how-it-works" class="py-16 sm:py-24 bg-medtint border-y border-rose-100 px-4 sm:px-8">
     <div class="max-w-7xl mx-auto">
       <div class="text-center max-w-2xl mx-auto mb-14">
-        <span class="bg-archpink text-medcrimson text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full">
+        <span class="bg-medpink text-medcrimson text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full border border-rose-200">
           System Architecture
         </span>
-        <h2 class="font-serif text-3xl sm:text-5xl font-bold text-medred mt-4">
-          Components of BIOCLOTIX
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-medcrimson mt-4 tracking-tight">
+          How It Works &amp; Core Components
         </h2>
-        <p class="mt-3 text-slate-600 text-sm sm:text-base">
-          Two complementary plant-derived biomaterials paired with a purely mechanical dual-chamber delivery system.
+        <p class="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed">
+          Two synergistic plant-derived powders housed inside an isolated mechanical delivery system for immediate, moisture-protected deployment.
         </p>
       </div>
 
-      <!-- 4 Key Component Cards -->
+      <!-- Four Core Component Cards -->
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <!-- Component 1: ORC -->
-        <div class="bg-softrose rounded-3xl p-6 border border-rose-200/70 hover:border-medred/50 transition">
-          <div class="w-12 h-12 rounded-2xl bg-pillrose text-medcrimson flex items-center justify-center font-serif font-bold text-xl mb-5">
-            01
+        <!-- Component 01 -->
+        <div class="bg-white rounded-3xl p-7 border border-rose-200/80 shadow-sm hover:border-medred/50 transition flex flex-col justify-between">
+          <div>
+            <div class="w-11 h-11 rounded-2xl bg-medpink text-medcrimson flex items-center justify-center font-extrabold text-sm mb-5 border border-rose-200">
+              01
+            </div>
+            <h3 class="text-lg font-bold text-medcrimson leading-snug">
+              Chamber A — Oxidized Regenerated Cellulose (ORC)
+            </h3>
+            <p class="mt-3 text-sm text-slate-600 leading-relaxed">
+              Plant-derived fibrous powder that promotes platelet aggregation and forms a physical acidic scaffold to accelerate natural clot stabilization.
+            </p>
           </div>
-          <h3 class="font-serif text-xl font-bold text-medcrimson">ORC Powder</h3>
-          <p class="mt-2 text-sm text-slate-600 leading-relaxed">
-            Plant-derived Oxidised Regenerated Cellulose fiber that forms a supportive structural matrix and accelerates natural blood clotting.
-          </p>
+          <div class="mt-5 pt-4 border-t border-rose-100 text-xs font-semibold text-medred">
+            Structural Clot Scaffold
+          </div>
         </div>
 
-        <!-- Component 2: Microporous Starch -->
-        <div class="bg-softrose rounded-3xl p-6 border border-rose-200/70 hover:border-medred/50 transition">
-          <div class="w-12 h-12 rounded-2xl bg-pillblush text-pink-800 flex items-center justify-center font-serif font-bold text-xl mb-5 border border-pink-200">
-            02
+        <!-- Component 02 -->
+        <div class="bg-white rounded-3xl p-7 border border-rose-200/80 shadow-sm hover:border-medred/50 transition flex flex-col justify-between">
+          <div>
+            <div class="w-11 h-11 rounded-2xl bg-medpink text-medcrimson flex items-center justify-center font-extrabold text-sm mb-5 border border-rose-200">
+              02
+            </div>
+            <h3 class="text-lg font-bold text-medcrimson leading-snug">
+              Chamber B — Microporous Starch
+            </h3>
+            <p class="mt-3 text-sm text-slate-600 leading-relaxed">
+              Biocompatible plant polysaccharide engineered with microscopic pores that rapidly absorb fluid and plasma to concentrate native clotting factors at the wound site.
+            </p>
           </div>
-          <h3 class="font-serif text-xl font-bold text-medcrimson">Microporous Starch</h3>
-          <p class="mt-2 text-sm text-slate-600 leading-relaxed">
-            An ultra-absorbent plant polysaccharide whose microscopic pores rapidly wick away fluid to concentrate red blood cells and platelets.
-          </p>
+          <div class="mt-5 pt-4 border-t border-rose-100 text-xs font-semibold text-medred">
+            Rapid Fluid Absorption
+          </div>
         </div>
 
-        <!-- Component 3: Dual-Chamber Applicator -->
-        <div class="bg-softrose rounded-3xl p-6 border border-rose-200/70 hover:border-medred/50 transition">
-          <div class="w-12 h-12 rounded-2xl bg-pillcoral/50 text-medcrimson flex items-center justify-center font-serif font-bold text-xl mb-5">
-            03
+        <!-- Component 03 -->
+        <div class="bg-white rounded-3xl p-7 border border-rose-200/80 shadow-sm hover:border-medred/50 transition flex flex-col justify-between">
+          <div>
+            <div class="w-11 h-11 rounded-2xl bg-medpink text-medcrimson flex items-center justify-center font-extrabold text-sm mb-5 border border-rose-200">
+              03
+            </div>
+            <h3 class="text-lg font-bold text-medcrimson leading-snug">
+              Dual-Chamber Mechanical Housing
+            </h3>
+            <p class="mt-3 text-sm text-slate-600 leading-relaxed">
+              Sealed internal divider keeps ORC and Microporous Starch completely dry and separated during storage until simultaneous airflow deployment.
+            </p>
           </div>
-          <h3 class="font-serif text-xl font-bold text-medcrimson">Dual-Chamber Body</h3>
-          <p class="mt-2 text-sm text-slate-600 leading-relaxed">
-            Isolated internal compartments keep the two powders completely separate prior to deployment to prevent moisture exposure and clumping.
-          </p>
+          <div class="mt-5 pt-4 border-t border-rose-100 text-xs font-semibold text-medred">
+            Zero Premature Clumping
+          </div>
         </div>
 
-        <!-- Component 4: Precision Tip & Manual Pump -->
-        <div class="bg-softrose rounded-3xl p-6 border border-rose-200/70 hover:border-medred/50 transition">
-          <div class="w-12 h-12 rounded-2xl bg-medred text-white flex items-center justify-center font-serif font-bold text-xl mb-5">
-            04
+        <!-- Component 04 -->
+        <div class="bg-white rounded-3xl p-7 border border-rose-200/80 shadow-sm hover:border-medred/50 transition flex flex-col justify-between">
+          <div>
+            <div class="w-11 h-11 rounded-2xl bg-medred text-white flex items-center justify-center font-extrabold text-sm mb-5">
+              04
+            </div>
+            <h3 class="text-lg font-bold text-medcrimson leading-snug">
+              Fixed Precision Dispensing Tip &amp; Manual Pump
+            </h3>
+            <p class="mt-3 text-sm text-slate-600 leading-relaxed">
+              Delivers controlled, targeted powder dispersion onto irregular wound surfaces with a simple manual squeeze—requiring no calibration or power.
+            </p>
           </div>
-          <h3 class="font-serif text-xl font-bold text-medcrimson">Dispensing Tip & Manual Pump</h3>
-          <p class="mt-2 text-sm text-slate-600 leading-relaxed">
-            Non-electronic manual airflow mechanism paired with a fixed precision dispensing tip for targeted, consistent wound coverage.
-          </p>
+          <div class="mt-5 pt-4 border-t border-rose-100 text-xs font-semibold text-medred">
+            Direct Mechanical Actuation
+          </div>
         </div>
       </div>
 
-      <!-- Concise "How It Works" Banner -->
-      <div class="mt-12 bg-softrose rounded-3xl p-8 sm:p-10 border border-rose-200 flex flex-col lg:flex-row items-center gap-8">
+      <!-- Synergistic Mechanism Summary Banner -->
+      <div class="mt-10 bg-white rounded-3xl p-7 sm:p-9 border border-rose-200 shadow-sm flex flex-col lg:flex-row items-start lg:items-center gap-6">
         <div class="lg:w-1/3">
-          <span class="text-xs font-bold uppercase tracking-widest text-medred">Coordinated Mechanism</span>
-          <h3 class="font-serif text-2xl sm:text-3xl font-bold text-medcrimson mt-1">How It Works</h3>
+          <span class="text-xs font-bold uppercase tracking-widest text-medred">Synergistic Action</span>
+          <h3 class="text-2xl font-extrabold text-medcrimson mt-1">Simultaneous Deployment</h3>
         </div>
-        <div class="lg:w-2/3 text-slate-700 text-sm sm:text-base leading-relaxed border-t lg:border-t-0 lg:border-l border-rose-200 pt-4 lg:pt-0 lg:pl-8">
-          When the manual pump is compressed, controlled airflow propels the <strong>ORC</strong> and <strong>starch powders</strong> through separate internal channels. They deploy simultaneously through the dispensing tip, where the starch instantly absorbs excess fluid to concentrate blood components, while the ORC provides an immediate matrix to support the body's natural clot formation.
-        </div>
+        <p class="lg:w-2/3 text-sm sm:text-base text-slate-700 leading-relaxed border-t lg:border-t-0 lg:border-l border-rose-100 pt-4 lg:pt-0 lg:pl-8">
+          Squeezing the manual pump channels clean air through both chambers simultaneously. <strong>Microporous Starch</strong> immediately dehydrates blood plasma to concentrate platelets and fibrin, while <strong>ORC</strong> establishes a cohesive, acidic physical matrix that seals the wound bed and naturally biodegrades as tissue heals.
+        </p>
       </div>
     </div>
   </section>
 
   <!-- =========================================================
-       SECTION 3: INTERACTIVE APPLICATOR SIMULATOR
+       3. INTERACTIVE DUAL-CHAMBER SIMULATOR
   ========================================================== -->
-  <section id="simulator" class="py-20 px-4 sm:px-8 max-w-7xl mx-auto">
+  <section id="simulator" class="py-16 sm:py-24 px-4 sm:px-8 max-w-7xl mx-auto">
     <div class="text-center max-w-2xl mx-auto mb-12">
-      <span class="bg-archpink text-medcrimson text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full">
-        Interactive Engineering Demo
+      <span class="bg-medpink text-medcrimson text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full border border-rose-200">
+        Interactive Demonstration
       </span>
-      <h2 class="font-serif text-3xl sm:text-5xl font-bold text-medred mt-4">
-        Test the Dual-Chamber Applicator
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-medcrimson mt-4 tracking-tight">
+        Interactive Dual-Chamber Simulator
       </h2>
       <p class="mt-3 text-slate-600 text-sm sm:text-base">
-        Press the manual pump to observe how ORC and Microporous Starch deploy simultaneously through the precision dispensing tip onto a simulated wound bed.
+        Click the manual pump button below to watch ORC and Microporous Starch spray simultaneously onto the simulated wound bed and form a sealed biodegradable gel matrix.
       </p>
     </div>
 
-    <div class="bg-white rounded-3xl border border-rose-200 shadow-sm p-6 sm:p-10">
+    <div class="bg-white rounded-3xl border border-rose-200 shadow-md p-6 sm:p-10">
       <div class="grid lg:grid-cols-12 gap-8 items-center">
 
-        <!-- Controls Panel (Left) -->
-        <div class="lg:col-span-5 space-y-6">
-          <!-- Mechanism Readout -->
-          <div class="bg-softrose rounded-2xl p-5 border border-rose-200/70">
-            <div class="flex items-center justify-between text-xs font-semibold text-slate-500">
-              <span>DELIVERY SYSTEM</span>
-              <span class="text-medred font-bold">DUAL-CHANNEL AIRFLOW</span>
+        <!-- Left: Simulator Controls & Live Readouts -->
+        <div class="lg:col-span-5 space-y-5">
+          <div class="bg-medtint rounded-2xl p-5 border border-rose-200/80">
+            <div class="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-medcrimson">
+              <span>Delivery Mechanism</span>
+              <span class="bg-white px-2.5 py-0.5 rounded-full border border-rose-200 text-medred">Dual-Channel Air</span>
             </div>
-            <p class="text-sm text-slate-700 mt-2 leading-relaxed">
-              Each pump compression delivers a balanced, uniform dispersion of <strong>Chamber A (ORC)</strong> and <strong>Chamber B (Microporous Starch)</strong> directly onto the target site without pre-mixing.
+            <p class="mt-2.5 text-sm text-slate-700 leading-relaxed">
+              Each pump compression propels both <strong>Chamber A (ORC)</strong> and <strong>Chamber B (Microporous Starch)</strong> through the fixed precision dispensing tip to absorb plasma and lock in a protective gel seal.
             </p>
           </div>
 
-          <!-- Manual Pump Trigger Button -->
-          <div>
-            <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-3">
-              Manual Airflow Pump
-            </label>
-            <button onclick="triggerSimSpray()" class="w-full py-4 px-6 rounded-full bg-medred hover:bg-medcrimson text-white font-bold text-sm tracking-wider uppercase shadow-md transition flex items-center justify-center gap-3 active:scale-95">
-              <span>Press Manual Pump</span>
+          <!-- Primary Pump Action Button -->
+          <div class="space-y-3">
+            <button onclick="triggerSimSpray()" class="w-full py-4 px-6 rounded-full bg-medred hover:bg-medcrimson text-white font-bold text-xs sm:text-sm tracking-wider uppercase shadow-md transition flex items-center justify-center gap-2.5 active:scale-95">
+              <span>Deploy Hemostatic Powder</span>
               <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
             </button>
-            <div class="flex justify-between items-center mt-3 text-xs text-slate-500">
-              <span>Pump Actuations: <strong id="pumpCounter" class="text-slate-800">0</strong></span>
-              <button onclick="resetSimWound()" class="underline hover:text-medred">Reset Wound Bed</button>
+
+            <div class="flex items-center justify-between px-2 text-xs font-semibold text-slate-600">
+              <span>Pump Actuations: <strong id="pumpCounter" class="text-medcrimson">0</strong></span>
+              <button onclick="resetSimWound()" class="text-medred hover:text-medcrimson underline underline-offset-4 font-bold">
+                Reset Simulation
+              </button>
+            </div>
+          </div>
+
+          <!-- Live Physiological Metrics -->
+          <div class="grid grid-cols-2 gap-3 pt-1">
+            <div class="bg-medtint rounded-2xl p-3.5 border border-rose-100">
+              <div class="text-[11px] font-bold uppercase tracking-wider text-slate-500">Plasma Absorption</div>
+              <div id="absorptionStat" class="text-lg font-extrabold text-medcrimson mt-0.5">0%</div>
+            </div>
+            <div class="bg-medtint rounded-2xl p-3.5 border border-rose-100">
+              <div class="text-[11px] font-bold uppercase tracking-wider text-slate-500">Biodegradable Gel</div>
+              <div id="gelStat" class="text-lg font-extrabold text-medred mt-0.5">Unformed</div>
             </div>
           </div>
         </div>
 
-        <!-- Visual Simulation Stage (Right) -->
-        <div class="lg:col-span-7 bg-softrose rounded-3xl border border-rose-200/80 p-6 relative overflow-hidden min-h-[310px] flex flex-col justify-between">
-          <div class="flex items-center justify-between text-xs font-semibold text-slate-600 z-10">
-            <span class="flex items-center gap-2">
-              <span class="w-2.5 h-2.5 rounded-full bg-medred inline-block"></span> ORC Matrix
-              <span class="w-2.5 h-2.5 rounded-full bg-pink-400 inline-block ml-2"></span> Microporous Starch
-            </span>
-            <span id="clotStatusLabel" class="bg-white px-3 py-1 rounded-full border border-rose-200 text-slate-700">
+        <!-- Right: Visual Spray & Wound Bed Stage -->
+        <div class="lg:col-span-7 bg-medtint rounded-3xl border border-rose-200 p-6 sm:p-7 relative overflow-hidden min-h-[320px] flex flex-col justify-between">
+          <!-- Legend & Live Status Pill -->
+          <div class="flex flex-wrap items-center justify-between gap-2 text-xs font-semibold text-slate-700 z-10">
+            <div class="flex items-center gap-3">
+              <span class="inline-flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-medred"></span> ORC Powder
+              </span>
+              <span class="inline-flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-rose-400"></span> Microporous Starch
+              </span>
+            </div>
+            <span id="clotStatusBadge" class="bg-white px-3.5 py-1 rounded-full border border-rose-200 text-medcrimson font-bold">
               Status: Ready to Deploy
             </span>
           </div>
 
-          <!-- Applicator + Target Wound Bed Canvas -->
-          <div class="relative my-auto py-8 flex items-center justify-between gap-3 sm:gap-4">
-            <!-- Left: Fixed Dispensing Tip with Properly Contained Chamber A & Chamber B Labels -->
+          <!-- Applicator Tip -> Spray Zone -> Wound Bed -->
+          <div class="relative my-auto py-8 flex items-center justify-between gap-2 sm:gap-4">
+            <!-- Applicator Model -->
             <div class="flex items-center shrink-0">
-              <div id="simPumpBlock" class="w-9 sm:w-11 h-20 rounded-l-full bg-medred transition-transform duration-200"></div>
-              <div class="w-36 sm:w-44 bg-white border-2 border-medcrimson rounded-2xl flex flex-col justify-between p-1.5 gap-1.5 shadow-sm overflow-hidden">
-                <div class="w-full py-1.5 px-2 bg-rose-100 border border-rose-200 rounded-xl text-[10px] sm:text-[11px] font-bold text-medcrimson text-center leading-tight truncate">
+              <div id="simPumpBlock" class="w-8 sm:w-10 h-20 rounded-l-full bg-medred transition-transform duration-200"></div>
+              <div class="w-36 sm:w-44 bg-white border-2 border-medcrimson rounded-2xl flex flex-col justify-between p-1.5 gap-1.5 shadow-sm">
+                <div class="w-full py-1.5 px-2 bg-medtint border border-rose-200 rounded-xl text-[10px] sm:text-[11px] font-bold text-medcrimson text-center truncate">
                   Chamber A: ORC
                 </div>
-                <div class="w-full py-1.5 px-2 bg-pink-100 border border-pink-200 rounded-xl text-[10px] sm:text-[11px] font-bold text-pink-900 text-center leading-tight truncate">
+                <div class="w-full py-1.5 px-2 bg-medpink border border-rose-200 rounded-xl text-[10px] sm:text-[11px] font-bold text-medcrimson text-center truncate">
                   Chamber B: Starch
                 </div>
               </div>
-              <div class="w-7 sm:w-8 h-11 bg-meddark rounded-r-xl flex items-center justify-center shrink-0">
-                <span class="w-2 h-2 rounded-full bg-archpink"></span>
+              <!-- Fixed Precision Dispensing Tip -->
+              <div class="w-7 sm:w-8 h-10 bg-medbody rounded-r-xl flex items-center justify-center shrink-0">
+                <span class="w-2 h-2 rounded-full bg-medpink"></span>
               </div>
             </div>
 
-            <!-- Middle: Particle Spray Stream Zone -->
-            <div id="simParticleZone" class="flex-1 h-28 relative pointer-events-none min-w-[32px]"></div>
+            <!-- Particle Dispersion Stream -->
+            <div id="simParticleZone" class="flex-1 h-28 relative pointer-events-none min-w-[28px]"></div>
 
-            <!-- Right: Simulated Wound Matrix -->
-            <div class="w-32 sm:w-44 h-32 sm:h-44 rounded-full bg-rose-200/70 border-4 border-rose-300 relative flex items-center justify-center overflow-hidden shrink-0 shadow-inner">
+            <!-- Target Wound Bed -->
+            <div class="w-32 sm:w-44 h-32 sm:h-44 rounded-full bg-rose-200/80 border-4 border-rose-300 relative flex items-center justify-center overflow-hidden shrink-0 shadow-inner">
               <!-- Active Bleeding Core -->
-              <div id="woundFluidLayer" class="w-20 sm:w-24 h-20 sm:h-24 rounded-full bg-medred/85 transition-all duration-700 flex items-center justify-center">
-                <span class="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-white text-center px-2" id="woundCoreText">
-                  Exudate / Blood
+              <div id="woundFluidLayer" class="w-20 sm:w-24 h-20 sm:h-24 rounded-full bg-medred/90 transition-all duration-700 flex items-center justify-center">
+                <span id="woundCoreText" class="text-[9px] sm:text-[10px] font-extrabold uppercase tracking-wider text-white text-center px-2">
+                  Active Bleeding
                 </span>
               </div>
-              <!-- Accumulated Powder Matrix Overlay -->
-              <div id="woundMatrixOverlay" class="absolute inset-0 bg-white/0 transition-all duration-700 flex items-center justify-center pointer-events-none">
-              </div>
+              <!-- Biodegradable Gel Matrix Seal Overlay -->
+              <div id="woundGelOverlay" class="absolute inset-0 bg-white/0 transition-all duration-700 flex items-center justify-center pointer-events-none"></div>
             </div>
           </div>
 
-          <!-- Progress Bar for Haemostatic Matrix Formation -->
+          <!-- Haemostatic Sealing Progress Bar -->
           <div class="z-10">
-            <div class="flex justify-between text-xs font-semibold text-slate-600 mb-1.5">
-              <span>Clot Matrix Coverage</span>
+            <div class="flex justify-between text-xs font-bold text-medcrimson mb-1.5">
+              <span>Clotting &amp; Gel Matrix Seal</span>
               <span id="matrixPercent">0%</span>
             </div>
-            <div class="w-full h-2.5 bg-rose-200/70 rounded-full overflow-hidden">
+            <div class="w-full h-2.5 bg-rose-200/80 rounded-full overflow-hidden">
               <div id="matrixProgressBar" class="h-full bg-medred transition-all duration-500 rounded-full" style="width: 0%;"></div>
             </div>
           </div>
@@ -554,191 +496,211 @@
   </section>
 
   <!-- =========================================================
-       SECTION 4: PRACTICALITY & FIELD READINESS
+       4. PRACTICALITY & FIELD READINESS
   ========================================================== -->
-  <section id="practicality" class="py-16 sm:py-20 bg-archpink/55 border-y border-rose-200/70 px-4 sm:px-8">
+  <section id="practicality" class="py-16 sm:py-24 bg-medpink/55 border-y border-rose-200/70 px-4 sm:px-8">
     <div class="max-w-7xl mx-auto">
       <div class="grid lg:grid-cols-12 gap-10 items-center">
+
+        <!-- Left Editorial Explanation -->
         <div class="lg:col-span-5">
-          <span class="bg-white text-medcrimson text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full shadow-sm border border-rose-200">
-            Real-World Viability
+          <span class="bg-white text-medcrimson text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full border border-rose-200 shadow-sm">
+            Operational Durability
           </span>
-          <h2 class="font-serif text-3xl sm:text-5xl font-bold text-medred mt-4 leading-tight">
-            Practicality & Field Readiness.
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-medcrimson mt-4 tracking-tight leading-tight">
+            Practicality &amp; Field Readiness
           </h2>
           <p class="mt-4 text-slate-700 text-sm sm:text-base leading-relaxed">
-            BIOCLOTIX is engineered for rugged, real-world deployment by prioritizing mechanical simplicity and environmental durability. Using abundant plant-derived ORC and microporous starch keeps the device lightweight and affordable to produce, while eliminating cold-chain logistics across emergency vehicles, clinics, and everyday first-aid kits.
+            BIOCLOTIX is purpose-built for demanding real-world environments where conventional medical supplies fail. Because the dry powder formula requires zero electricity or refrigeration, it maintains long-term ambient shelf stability in ambulances, remote clinics, and field trauma packs, while relying on abundant plant-derived ingredients keeps the system practical and affordable for widespread deployment.
           </p>
           <p class="mt-3 text-slate-700 text-sm sm:text-base leading-relaxed">
-            The dry powder system requires zero electricity or refrigeration, staying shelf-stable at ambient room temperature for years. Its purely mechanical pump requires no specialized medical training—any bystander or responder can point and spray instantly—while the biodegradable materials clear cleanly without the painful scab-tearing of standard gauze.
+            Its compact, lightweight bottle fits seamlessly into standard first-aid kits and operates via intuitive single-handed pumping—allowing responders or bystanders to stop bleeding immediately without specialized training or painful dressing removal later.
           </p>
         </div>
 
-        <!-- 4 Operational Practicality Metric Cards -->
+        <!-- Right Four Operational Highlight Cards -->
         <div class="lg:col-span-7 grid sm:grid-cols-2 gap-5">
-          <div class="bg-white rounded-3xl p-6 shadow-sm border border-rose-200/70">
-            <div class="text-xs font-bold uppercase tracking-wider text-medred mb-2">Power Independence</div>
-            <div class="font-serif text-3xl font-bold text-medcrimson">Zero Power</div>
-            <div class="text-xs font-semibold text-slate-500 mt-0.5">No electricity, batteries, or refrigeration</div>
-            <p class="text-sm text-slate-600 mt-3">Purely mechanical airflow actuation ensures immediate readiness even during power outages or remote field emergencies.</p>
+          <!-- Card 1: Zero Power -->
+          <div class="bg-white rounded-3xl p-6 border border-rose-200/80 shadow-sm">
+            <div class="w-10 h-10 rounded-xl bg-medpink text-medcrimson flex items-center justify-center mb-4">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <div class="text-xl font-extrabold text-medcrimson">Zero Power</div>
+            <div class="text-xs font-bold uppercase tracking-wider text-medred mt-0.5">Fully Mechanical Operation</div>
+            <p class="mt-2.5 text-sm text-slate-600 leading-relaxed">
+              Operates entirely on manual airflow compression with no batteries, wires, or external power sources required.
+            </p>
           </div>
 
-          <div class="bg-white rounded-3xl p-6 shadow-sm border border-rose-200/70">
-            <div class="text-xs font-bold uppercase tracking-wider text-medred mb-2">Storage & Shelf Life</div>
-            <div class="font-serif text-3xl font-bold text-medcrimson">Ambient Stable</div>
-            <div class="text-xs font-semibold text-slate-500 mt-0.5">Isolated dry-powder dual chambers</div>
-            <p class="text-sm text-slate-600 mt-3">Moisture-sealed compartments prevent premature clumping so bottles store safely in ambulances, glove boxes, and trauma bags.</p>
+          <!-- Card 2: Ambient Stable -->
+          <div class="bg-white rounded-3xl p-6 border border-rose-200/80 shadow-sm">
+            <div class="w-10 h-10 rounded-xl bg-medpink text-medcrimson flex items-center justify-center mb-4">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v18m0-18l-4 4m4-4l4 4m-4 14l-4-4m4 4l4-4" />
+              </svg>
+            </div>
+            <div class="text-xl font-extrabold text-medcrimson">Ambient Stable</div>
+            <div class="text-xs font-bold uppercase tracking-wider text-medred mt-0.5">No Cold-Chain Required</div>
+            <p class="mt-2.5 text-sm text-slate-600 leading-relaxed">
+              Moisture-isolated dry powder chambers prevent premature clumping and eliminate refrigeration across extreme climates.
+            </p>
           </div>
 
-          <div class="bg-white rounded-3xl p-6 shadow-sm border border-rose-200/70">
-            <div class="text-xs font-bold uppercase tracking-wider text-pink-700 mb-2">Ease of Operation</div>
-            <div class="font-serif text-3xl font-bold text-medcrimson">Point & Pump</div>
-            <div class="text-xs font-semibold text-slate-500 mt-0.5">No specialized training required</div>
-            <p class="text-sm text-slate-600 mt-3">Ergonomic one-handed operation eliminates pre-mixing or calibration steps during high-stress emergency interventions.</p>
+          <!-- Card 3: Point & Pump -->
+          <div class="bg-white rounded-3xl p-6 border border-rose-200/80 shadow-sm">
+            <div class="w-10 h-10 rounded-xl bg-medpink text-medcrimson flex items-center justify-center mb-4">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5" />
+              </svg>
+            </div>
+            <div class="text-xl font-extrabold text-medcrimson">Point &amp; Pump</div>
+            <div class="text-xs font-bold uppercase tracking-wider text-medred mt-0.5">Intuitive Single-Handed Use</div>
+            <p class="mt-2.5 text-sm text-slate-600 leading-relaxed">
+              Lightweight ergonomic housing requires no mixing or setup, enabling immediate action under high-stress conditions.
+            </p>
           </div>
 
-          <div class="bg-white rounded-3xl p-6 shadow-sm border border-rose-200/70">
-            <div class="text-xs font-bold uppercase tracking-wider text-pink-700 mb-2">Portability & Clearance</div>
-            <div class="font-serif text-3xl font-bold text-medcrimson">Biodegradable</div>
-            <div class="text-xs font-semibold text-slate-500 mt-0.5">Compact kit fit & gentle clearance</div>
-            <p class="text-sm text-slate-600 mt-3">Lightweight bottle fits standard first-aid kits and breaks down naturally without painful re-bleeding upon dressing removal.</p>
+          <!-- Card 4: Biodegradable -->
+          <div class="bg-white rounded-3xl p-6 border border-rose-200/80 shadow-sm">
+            <div class="w-10 h-10 rounded-xl bg-medpink text-medcrimson flex items-center justify-center mb-4">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+            </div>
+            <div class="text-xl font-extrabold text-medcrimson">Biodegradable</div>
+            <div class="text-xs font-bold uppercase tracking-wider text-medred mt-0.5">Breaks Down Naturally Without Scab Tearing</div>
+            <p class="mt-2.5 text-sm text-slate-600 leading-relaxed">
+              Plant-derived cellulose and starch absorb safely and clear gently with saline—preventing secondary re-bleeding.
+            </p>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
   <!-- =========================================================
-       SECTION 5: POTENTIAL APPLICATIONS (3 Core Settings)
+       5. POTENTIAL APPLICATIONS
   ========================================================== -->
-  <section id="applications" class="py-20 px-4 sm:px-8 max-w-7xl mx-auto">
+  <section id="applications" class="py-16 sm:py-24 px-4 sm:px-8 max-w-7xl mx-auto">
     <div class="text-center max-w-2xl mx-auto mb-14">
-      <span class="bg-archpink text-medcrimson text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full">
-        Versatile Deployment
+      <span class="bg-medpink text-medcrimson text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full border border-rose-200">
+        Clinical &amp; Field Versatility
       </span>
-      <h2 class="font-serif text-3xl sm:text-5xl font-bold text-medred mt-4">
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-medcrimson mt-4 tracking-tight">
         Potential Applications
       </h2>
       <p class="mt-3 text-slate-600 text-sm sm:text-base">
-        Because of its rapid clotting action and portable dry-powder delivery, BIOCLOTIX adapts seamlessly across three core settings.
+        Engineered to deliver fast, clean haemostasis across emergency response, clinical procedures, and everyday care.
       </p>
     </div>
 
     <div class="grid md:grid-cols-3 gap-7">
-      <!-- Application 1: Emergency -->
-      <div class="bg-white rounded-3xl p-8 border border-rose-200/80 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+      <!-- Application Card 1 -->
+      <div class="bg-white rounded-3xl p-8 border border-rose-200 shadow-sm hover:shadow-md transition flex flex-col justify-between">
         <div>
-          <span class="inline-block bg-pillrose text-medcrimson text-xs font-bold px-3.5 py-1 rounded-full mb-5">
+          <span class="inline-block bg-medpink text-medcrimson text-xs font-bold px-3.5 py-1 rounded-full mb-5 border border-rose-200">
             01 • Frontline Care
           </span>
-          <h3 class="font-serif text-2xl font-bold text-medred">Emergency & Trauma Response</h3>
-          <p class="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed">
-            Stabilizes severe bleeding during road accidents, tactical trauma, and workplace emergencies before hospital arrival.
-          </p>
-        </div>
-        <div class="mt-6 pt-4 border-t border-rose-100 text-xs font-semibold text-medcrimson">
-          Ambulances • Field Medics • Disaster Kits
+          <h3 class="text-xl font-extrabold text-medcrimson">Emergency &amp; Trauma Response</h3>
+          <ul class="mt-4 space-y-2.5 text-sm text-slate-700">
+            <li class="flex items-center gap-2.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-medred shrink-0"></span>
+              <span>Rapid pre-hospital haemorrhage control during road and workplace accidents</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-medred shrink-0"></span>
+              <span>Reliable field stabilization in remote or disaster-relief zones</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-medred shrink-0"></span>
+              <span>Ready-to-deploy bottle for ambulances and paramedic kits</span>
+            </li>
+          </ul>
         </div>
       </div>
 
-      <!-- Application 2: Hospitals -->
-      <div class="bg-white rounded-3xl p-8 border border-rose-200/80 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+      <!-- Application Card 2 -->
+      <div class="bg-white rounded-3xl p-8 border border-rose-200 shadow-sm hover:shadow-md transition flex flex-col justify-between">
         <div>
-          <span class="inline-block bg-pillblush text-pink-900 text-xs font-bold px-3.5 py-1 rounded-full mb-5">
+          <span class="inline-block bg-medpink text-medcrimson text-xs font-bold px-3.5 py-1 rounded-full mb-5 border border-rose-200">
             02 • Clinical Precision
           </span>
-          <h3 class="font-serif text-2xl font-bold text-medred">Hospitals & Clinical Surgery</h3>
-          <p class="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed">
-            Delivers targeted bleeding control across irregular tissue surfaces during general surgeries, orthopedics, and dental procedures.
-          </p>
-        </div>
-        <div class="mt-6 pt-4 border-t border-rose-100 text-xs font-semibold text-medcrimson">
-          Operating Rooms • Orthopedics • Dentistry
+          <h3 class="text-xl font-extrabold text-medcrimson">Hospitals &amp; Clinical Surgery</h3>
+          <ul class="mt-4 space-y-2.5 text-sm text-slate-700">
+            <li class="flex items-center gap-2.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-medred shrink-0"></span>
+              <span>Targeted capillary and venous oozing control on irregular tissue surfaces</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-medred shrink-0"></span>
+              <span>Biodegradable support for general, orthopedic, and dental procedures</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-medred shrink-0"></span>
+              <span>Clean saline irrigation clearance without disturbing newly formed clots</span>
+            </li>
+          </ul>
         </div>
       </div>
 
-      <!-- Application 3: Small Injuries -->
-      <div class="bg-white rounded-3xl p-8 border border-rose-200/80 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+      <!-- Application Card 3 -->
+      <div class="bg-white rounded-3xl p-8 border border-rose-200 shadow-sm hover:shadow-md transition flex flex-col justify-between">
         <div>
-          <span class="inline-block bg-pillcoral/45 text-medcrimson text-xs font-bold px-3.5 py-1 rounded-full mb-5">
+          <span class="inline-block bg-medpink text-medcrimson text-xs font-bold px-3.5 py-1 rounded-full mb-5 border border-rose-200">
             03 • Everyday Protection
           </span>
-          <h3 class="font-serif text-2xl font-bold text-medred">Small Injuries & First Aid</h3>
-          <p class="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed">
-            Upgrades home and travel first-aid kits to stop bleeding from minor cuts and scrapes without painful scab removal.
-          </p>
-        </div>
-        <div class="mt-6 pt-4 border-t border-rose-100 text-xs font-semibold text-medcrimson">
-          Home Kits • Schools • Outdoor Travel
+          <h3 class="text-xl font-extrabold text-medcrimson">Small Injuries &amp; Everyday First Aid</h3>
+          <ul class="mt-4 space-y-2.5 text-sm text-slate-700">
+            <li class="flex items-center gap-2.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-medred shrink-0"></span>
+              <span>Fast bleeding control for minor cuts, abrasions, and sports scrapes</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-medred shrink-0"></span>
+              <span>Compact shelf-stable addition to home, school, and travel kits</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-medred shrink-0"></span>
+              <span>Gentle gel barrier that dissolves without painful scab tearing</span>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
   <!-- =========================================================
-       SECTION 6: CONCLUSION & SCIENTIFIC REFERENCES
+       6. FOOTER
   ========================================================== -->
-  <section id="references" class="py-16 sm:py-20 bg-medcrimson text-white px-4 sm:px-8">
-    <div class="max-w-5xl mx-auto">
-      <!-- Conclusion Card -->
-      <div class="bg-white/10 backdrop-blur-sm rounded-3xl p-8 sm:p-12 border border-white/20 text-center">
-        <span class="bg-white text-medcrimson text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full">
-          Project Conclusion
+  <footer class="bg-medcrimson text-white py-12 px-4 sm:px-8 border-t border-rose-900">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <span class="w-8 h-8 rounded-xl bg-white text-medcrimson flex items-center justify-center font-extrabold text-base">
+          B
         </span>
-        <h2 class="font-serif text-3xl sm:text-4xl font-bold mt-5">
-          Nature-Inspired Chemistry Meets Functional Engineering.
-        </h2>
-        <p class="mt-4 text-rose-100 text-sm sm:text-base leading-relaxed max-w-3xl mx-auto">
-          BIOCLOTIX bridges the gap between advanced biomaterial science and practical, everyday engineering. By pairing plant-derived oxidized regenerated cellulose and microporous starch within a purpose-built dual-chamber applicator, it offers a concept that is affordable, shelf-stable, biodegradable, and intuitive enough for use anywhere from surgical theaters to roadside emergencies. While clinical validation and regulatory testing remain essential next steps, BIOCLOTIX demonstrates how thoughtful mechanical design and nature-inspired chemistry can work together to make rapid bleeding control accessible when every second counts.
-        </p>
+        <div>
+          <div class="text-lg font-extrabold tracking-tight">BIOCLOTIX</div>
+          <div class="text-xs text-rose-200">Plant-Derived Dual-Chamber Dry Powder Haemostatic System</div>
+        </div>
       </div>
 
-      <!-- Scientific References -->
-      <div class="mt-14">
-        <h3 class="font-serif text-xl font-bold text-archpink mb-4">Scientific References</h3>
-        <ol class="space-y-3 text-xs sm:text-sm text-rose-100/85 list-decimal list-inside leading-relaxed">
-          <li>
-            Stark, M., Wang, A. Y., Corrigan, B., Woldu, H. G., Azizighannad, S., Cipolla, G., Kocharian, R., &amp; De Leon, H. (2025). Comparative analyses of the hemostatic efficacy and surgical device performance of powdered oxidized regenerated cellulose and starch-based powder formulations. <em>Research and Practice in Thrombosis and Haemostasis</em>, 9(1), 102668.
-          </li>
-          <li>
-            Zhang, S., Li, J., Chen, S., Zhang, X., Ma, J., &amp; He, J. (2020). Oxidized cellulose-based hemostatic materials. <em>Carbohydrate Polymers</em>, 230, 115585.
-          </li>
-          <li>
-            Kanagal, D., Rao, K., Gathoga, P., Moharana, K., Patil, R., Jaiswal, P., Ap, V., &amp; Ts, D. (2025). Biomaterial-Based Hemostasis: A Review of the Clinical and Functional Versatility of Oxidized Regenerated Cellulose. <em>Cureus</em>, 17(10), e94602.
-          </li>
-        </ol>
-      </div>
-
-      <!-- Safety & Educational Prototype Disclaimer Footer -->
-      <div class="mt-12 pt-8 border-t border-white/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-rose-100/80">
-        <div class="font-serif text-lg font-bold text-white">Bioclotix</div>
-        <p class="text-center sm:text-right max-w-xl">
-          <strong>Educational Concept Notice:</strong> BIOCLOTIX is currently a proposed engineering concept and educational prototype, not a clinically validated or regulatory-approved medical device.
-        </p>
-      </div>
+      <!-- Quick Section Links -->
+      <nav class="flex flex-wrap justify-center gap-6 text-xs font-semibold uppercase tracking-wider text-rose-100">
+        <a href="#how-it-works" class="hover:text-white transition">Components</a>
+        <a href="#simulator" class="hover:text-white transition">Simulator</a>
+        <a href="#practicality" class="hover:text-white transition">Field Readiness</a>
+        <a href="#applications" class="hover:text-white transition">Applications</a>
+      </nav>
     </div>
-  </section>
 
-  <!-- =========================================================
-       SAFETY & EDUCATIONAL NOTICE MODAL
-  ========================================================== -->
-  <div id="safetyModal" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="bg-white rounded-3xl max-w-md w-full p-7 shadow-2xl border border-rose-200">
-      <div class="flex items-center justify-between mb-4">
-        <span class="bg-archpink text-medcrimson text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">
-          Prototype Safety Notice
-        </span>
-        <button onclick="closeModal('safetyModal')" class="text-slate-400 hover:text-slate-700 text-xl font-bold">&times;</button>
-      </div>
-      <h3 class="font-serif text-2xl font-bold text-medred">Educational Demonstration Concept</h3>
-      <p class="mt-3 text-sm text-slate-600 leading-relaxed">
-        BIOCLOTIX is a proposed biomedical engineering concept. Physical demonstration models use non-medical substitute powders and must <strong>never</strong> be applied to a person or open wound. Future medical deployment requires sterility validation, biocompatibility testing, and regulatory approval.
-      </p>
-      <button onclick="closeModal('safetyModal')" class="mt-6 w-full py-3 rounded-full bg-medred text-white font-bold text-xs uppercase tracking-widest hover:bg-medcrimson transition">
-        Understood
-      </button>
+    <div class="max-w-7xl mx-auto mt-8 pt-6 border-t border-white/15 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-rose-200/90">
+      <p>BIOCLOTIX Biomedical Engineering Concept</p>
+      <p class="text-center sm:text-right">Educational &amp; prototype demonstration model — not yet clinically validated for medical use.</p>
     </div>
-  </div>
+  </footer>
 
   <!-- =========================================================
        INTERACTIVE JAVASCRIPT
@@ -751,41 +713,31 @@
       mobileMenu.classList.toggle('hidden');
     });
 
-    // Modal Helpers
-    function openModal(id) {
-      document.getElementById(id).classList.remove('hidden');
-    }
-    function closeModal(id) {
-      document.getElementById(id).classList.add('hidden');
-    }
-
-    // Hero Device Interactive Controls
+    // Hero Bottle Interactive Spray Animation
     function triggerHeroSpray() {
-      const pump = document.getElementById('heroPumpGroup');
-      const anchor = document.getElementById('heroSprayParticles');
-      pump.classList.add('pump-pressed');
-      setTimeout(() => pump.classList.remove('pump-pressed'), 200);
+      const pump = document.getElementById('heroPumpBulb');
+      const anchor = document.getElementById('heroSprayAnchor');
+      pump.classList.add('pump-squeezed');
+      setTimeout(() => pump.classList.remove('pump-squeezed'), 200);
 
-      const count = 16;
-      for (let i = 0; i < count; i++) {
+      for (let i = 0; i < 18; i++) {
         const dot = document.createElement('span');
         const isORC = i % 2 === 0;
-        dot.className = `powder-particle absolute w-2 h-2 rounded-full ${isORC ? 'bg-medred' : 'bg-pink-400'}`;
-        const angle = (Math.random() - 0.5) * 0.9;
-        const dist = 45 + Math.random() * 65;
-        dot.style.setProperty('--tx', `${Math.cos(angle) * dist}px`);
-        dot.style.setProperty('--ty', `${Math.sin(angle) * dist}px`);
+        dot.className = `spray-dot absolute w-2 h-2 rounded-full ${isORC ? 'bg-medred' : 'bg-rose-400'}`;
+        const angle = (Math.random() - 0.5) * 0.85;
+        const distance = 45 + Math.random() * 65;
+        dot.style.setProperty('--tx', `${Math.cos(angle) * distance}px`);
+        dot.style.setProperty('--ty', `${Math.sin(angle) * distance}px`);
         anchor.appendChild(dot);
         setTimeout(() => dot.remove(), 850);
       }
     }
 
-    // Section 3 Simulator State & Logic
+    // Dual-Chamber Wound Bed Simulator Logic
     let pumpCount = 0;
-    let coverage = 0;
+    let sealProgress = 0;
 
     function triggerSimSpray() {
-      // Animate pump
       const pumpBlock = document.getElementById('simPumpBlock');
       pumpBlock.style.transform = 'scaleX(0.75)';
       setTimeout(() => (pumpBlock.style.transform = 'scaleX(1)'), 180);
@@ -793,57 +745,60 @@
       pumpCount++;
       document.getElementById('pumpCounter').textContent = pumpCount;
 
-      // Spawn dual-biomaterial particles
+      // Emit dual-powder particles from fixed precision tip
       const zone = document.getElementById('simParticleZone');
-      const particleCount = 16;
-      for (let i = 0; i < particleCount; i++) {
-        const p = document.createElement('span');
+      for (let i = 0; i < 16; i++) {
+        const particle = document.createElement('span');
         const isORC = i % 2 === 0;
-        p.className = `powder-particle absolute left-0 top-1/2 w-2.5 h-2.5 rounded-full ${isORC ? 'bg-medred' : 'bg-pink-400'}`;
-        const spreadY = (Math.random() - 0.5) * 60;
-        const reachX = 85 + Math.random() * 65;
-        p.style.setProperty('--tx', `${reachX}px`);
-        p.style.setProperty('--ty', `${spreadY}px`);
-        zone.appendChild(p);
-        setTimeout(() => p.remove(), 850);
+        particle.className = `spray-dot absolute left-0 top-1/2 w-2.5 h-2.5 rounded-full ${isORC ? 'bg-medred' : 'bg-rose-400'}`;
+        const spreadY = (Math.random() - 0.5) * 58;
+        const reachX = 80 + Math.random() * 65;
+        particle.style.setProperty('--tx', `${reachX}px`);
+        particle.style.setProperty('--ty', `${spreadY}px`);
+        zone.appendChild(particle);
+        setTimeout(() => particle.remove(), 850);
       }
 
-      // Update wound matrix coverage
-      coverage = Math.min(100, coverage + 25);
-      updateWoundVisuals();
+      sealProgress = Math.min(100, sealProgress + 25);
+      updateWoundState();
     }
 
-    function updateWoundVisuals() {
-      document.getElementById('matrixPercent').textContent = `${coverage}%`;
-      document.getElementById('matrixProgressBar').style.width = `${coverage}%`;
+    function updateWoundState() {
+      document.getElementById('matrixPercent').textContent = `${sealProgress}%`;
+      document.getElementById('matrixProgressBar').style.width = `${sealProgress}%`;
+      document.getElementById('absorptionStat').textContent = `${sealProgress}%`;
 
-      const overlay = document.getElementById('woundMatrixOverlay');
+      const overlay = document.getElementById('woundGelOverlay');
       const coreText = document.getElementById('woundCoreText');
-      const statusLabel = document.getElementById('clotStatusLabel');
+      const statusBadge = document.getElementById('clotStatusBadge');
+      const gelStat = document.getElementById('gelStat');
 
-      if (coverage === 0) {
+      if (sealProgress === 0) {
         overlay.style.backgroundColor = 'rgba(255, 255, 255, 0)';
-        coreText.textContent = 'Exudate / Blood';
-        statusLabel.textContent = 'Status: Ready to Deploy';
-        statusLabel.className = 'bg-white px-3 py-1 rounded-full border border-rose-200 text-slate-700';
-      } else if (coverage < 100) {
-        overlay.style.backgroundColor = `rgba(255, 241, 242, ${coverage / 130})`;
-        coreText.textContent = 'Absorbing Fluid...';
-        statusLabel.textContent = 'Status: Concentrating Platelets';
-        statusLabel.className = 'bg-pink-100 text-pink-900 px-3 py-1 rounded-full border border-pink-200';
+        coreText.innerHTML = 'Active Bleeding';
+        statusBadge.textContent = 'Status: Ready to Deploy';
+        statusBadge.className = 'bg-white px-3.5 py-1 rounded-full border border-rose-200 text-medcrimson font-bold';
+        gelStat.textContent = 'Unformed';
+      } else if (sealProgress < 100) {
+        overlay.style.backgroundColor = `rgba(255, 241, 242, ${sealProgress / 130})`;
+        coreText.innerHTML = 'Absorbing Plasma...';
+        statusBadge.textContent = 'Status: Concentrating Platelets';
+        statusBadge.className = 'bg-medpink text-medcrimson px-3.5 py-1 rounded-full border border-rose-300 font-bold';
+        gelStat.textContent = 'Forming...';
       } else {
         overlay.style.backgroundColor = 'rgba(255, 255, 255, 0.92)';
-        coreText.innerHTML = '<span class="text-medcrimson">Clot Matrix<br/>Stabilized</span>';
-        statusLabel.textContent = 'Status: Haemostatic Seal Formed';
-        statusLabel.className = 'bg-archpink text-medcrimson px-3 py-1 rounded-full border border-rose-300 font-bold';
+        coreText.innerHTML = '<span class="text-medcrimson">Biodegradable<br/>Gel Sealed</span>';
+        statusBadge.textContent = 'Status: Haemostatic Seal Complete';
+        statusBadge.className = 'bg-medred text-white px-3.5 py-1 rounded-full font-bold';
+        gelStat.textContent = 'Sealed';
       }
     }
 
     function resetSimWound() {
       pumpCount = 0;
-      coverage = 0;
+      sealProgress = 0;
       document.getElementById('pumpCounter').textContent = '0';
-      updateWoundVisuals();
+      updateWoundState();
     }
   </script>
 </body>
